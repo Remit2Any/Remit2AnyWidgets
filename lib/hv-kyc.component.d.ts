@@ -1,0 +1,36 @@
+import { ChangeDetectorRef, OnInit, Renderer2, TemplateRef } from '@angular/core';
+import { KYCInputs, KYCStatus } from './hv-kyc-model';
+import { ScriptService } from './script.service';
+import * as i0 from "@angular/core";
+export declare class HvKycComponent implements OnInit {
+    private readonly _changeDetectorRef;
+    private renderer;
+    private scriptService;
+    [x: string]: any;
+    private kycStep;
+    kycBtn: boolean;
+    KYCStatus: typeof KYCStatus;
+    not_started: TemplateRef<any> | undefined;
+    started: TemplateRef<any> | undefined;
+    user_cancelled: TemplateRef<any> | undefined;
+    auto_approved: TemplateRef<any> | undefined;
+    manually_approved: TemplateRef<any> | undefined;
+    needs_review: TemplateRef<any> | undefined;
+    error: TemplateRef<any> | undefined;
+    auto_declined: TemplateRef<any> | undefined;
+    manually_declined: TemplateRef<any> | undefined;
+    onSuccess: (args: any) => void;
+    onFailure: (args: any) => void;
+    kycInputs: KYCInputs;
+    serverError: boolean;
+    serverErrorMessage: string | undefined;
+    constructor(_changeDetectorRef: ChangeDetectorRef, renderer: Renderer2, scriptService: ScriptService);
+    ngOnInit(): void;
+    goBack(value: KYCStatus): void;
+    startKYCProcess(token: string, kycUniqueReferenceId: string): void;
+    private setStateKYC;
+    private kycWidgetHandler;
+    private launchHyperVerge;
+    static ɵfac: i0.ɵɵFactoryDeclaration<HvKycComponent, never>;
+    static ɵcmp: i0.ɵɵComponentDeclaration<HvKycComponent, "remit2any-hv-kyc", never, { "onSuccess": "onSuccess"; "onFailure": "onFailure"; "kycInputs": "kycInputs"; }, {}, never, never, false, never>;
+}
